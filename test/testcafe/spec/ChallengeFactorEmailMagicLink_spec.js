@@ -57,6 +57,8 @@ test
     await setup(t);
     const terminalPageObject = await new TerminalPageObject(t);
     await t.expect(terminalPageObject.getMessages()).eql('This email link has expired. To resend it, return to the screen where you requested it.');
+    await t.expect(terminalPageObject.goBackLinkExists()).eql(true);
+    await t.expect(terminalPageObject.getFormTitle()).eql('Verify with your email');
   });
 
 test
